@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Incidencias {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'library/datatable/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+{% endblock %}
+{% block content %}
+<div class="contenido-principal">    
+    <div class="insertar">        
+        <div id="idcarousel" class="carousel">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{% static "img/404-error-cyberpuk-girl-9x-1920x1080.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="pintado">
+                        <div class="titulo-insertar">
+                            <h2>Incidencias Tecnológicas</h2>
+                        </div>
+                        <div class="info-insertar">
+                            <p>Para poder registrar una nueva incidencia dirigirse al botón posterior que señala
+                                <strong>"Nueva incidencia"</strong>
+                            </p>
+                        </div>
+                        <br>
+                        <div class="link_insertar">
+                            <a href="{% url 'InsertarI' %}" class="btn btn-light"><i class="fa-solid fa-circle-plus fa-beat"></i> Nueva Incidencia</a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static "img/fondo carousel.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="pintado">
+                        <div class="titulo-insertar">
+                            <h2>Incidencias Tecnológicas</h2>
+                        </div>
+                        <div class="info-insertar">
+                            <p>Para poder registrar una nueva incidencia dirigirse al botón posterior que señala
+                                <strong>"Nueva incidencia"</strong>
+                            </p>
+                        </div>
+                        <br>
+                        <div class="link_insertar">
+                            <a href="{% url 'InsertarI' %}" class="btn btn-light"><i class="fa-solid fa-circle-plus fa-beat"></i> Nueva Incidencia</a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static "img/desktop-wallpaper-it-support.jpg" %}" class="d-block w-100" alt="...">
+                    <div class="pintado">
+                        <div class="titulo-insertar">
+                            <h2>Incidencias Tecnológicas</h2>
+                        </div>
+                        <div class="info-insertar">                            
+                            <p>Para poder registrar una nueva incidencia dirigirse al botón posterior que señala
+                                <strong>"Nueva incidencia"</strong>
+                            </p>
+                            
+                        </div>
+                        <br>
+                        <div class="link_insertar">
+                            <a href="{% url 'InsertarI' %}" class="btn btn-light"><i class="fa-solid fa-circle-plus fa-beat"></i> Nueva Incidencia</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="listar">
+        <div class="antesl">
+            <form method="GET" action=".">
+                <div class="row">
+                    <div class="col-8">
+                        <p>Listado General de Incidencias</p>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <select class="form-control smrg" name="Filtrado_Estados">
+                                <option value="0">General</option>
+                                <option value="1">En Espera</option>
+                                <option value="2">Cerrada</option>
+                                <option value="3">Pendiente Recordatorio</option>
+                                <option value="4">Pendiente Cerrar</option>
+                                <!-- Agrega las opciones que necesites -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <button class="btn btn-primary mrg" type="submit">Filtrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="completo-listar borde">
+            <div class="margen">
+                <div class="container">
+                    <table class="tabla-reporte" id="tabla">
+                        <thead>
+                            {% block columns %}
+                                <tr>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Cliente</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Estado</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Creado</th>
+                                    <th style="width: 10%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Nivel</th>
+                                    <th style="width: 30%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Acción</th>
+                                </tr>
+                            {% endblock %}
+                        </thead>
+                        <tbody>
+                            {% block rows %}
+                                {% if object_list %}
+                                    {% for incidencia in object_list %}
+                                        <tr class="vol subir">
+                                            <td style="width: 20%;">{{ incidencia.cliente }}</td>
+                                            <td style="width: 20%;">{{ incidencia.ObtenerEstado }}</td>
+                                            <td style="width: 20%;">{{ incidencia.fecha_creado }}</td>
+                                            <td style="width: 10%; text-align: center;">{{ incidencia.ObtenerNivel }}</td>
+                                            <td style="width: 30%; text-align: center;">
+                                                {% if incidencia.ObtenerEstado != 'Cerrada' %}
+                                                    <a title="Procesar Incidencia" class="btn btn-success" href="{% url 'ProcesarI' incidencia.id %}">
+                                                        <i class="fa-solid fa-archive fa-beat"></i>
+                                                    </a>
+                                                {% endif %}
+                                                <a title="Ver" class="btn btn-primary" href="{% url 'VerI' incidencia.id %}">
+                                                    <i class="fa-solid fa-eye fa-beat"></i>
+                                                </a>
+                                                <a title="Editar" class="btn btn-secondary" href="{% url 'EditarI' incidencia.id %}">
+                                                    <i class="fa-solid fa-edit fa-beat"></i>
+                                                </a>
+                                                <a title="Eliminar" class="btn btn-danger" href="{% url 'EliminarI' incidencia.id %}">
+                                                    <i class="fa-solid fa-trash fa-beat"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="mensaje">
+                                        <h3>No existen incidencias creadas </h3>
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
+                        </tbody>
+                    </table> 
+                </div>
+            </div>   
+        </div>
+    </div>
+</div>
+<br>
+<div class="footer">
+    
+</div>
+
+{% endblock %}
+{% block javascript %}
+<script>
+    $(function () {
+        $('#tabla').DataTable({
+            responsive: true,
+            autoWidth: false
+        });
+    } );
+</script>
+<script src="{% static 'library/daterangepicker-master/moment.min.js' %}"></script>
+<script src="{% static 'library/daterangepicker-master/daterangepicker.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+{% endblock %}

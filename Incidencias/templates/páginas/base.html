@@ -1,0 +1,74 @@
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'library/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'library/daterangepicker-master/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!--STYLES-->
+    <link rel="stylesheet" href="{% static 'css/mi_estilo8.css' %}">
+    {% block header %}{% endblock %}
+</head>
+
+<body id="bg" style="background-image: url('{% static "img/25327.jpg"%}');">
+
+    <div class="barra_navegacion">
+        <div id="idtitulop" class="titulop">
+            <p>Gestión de Incidencias</p>
+        </div>
+        <div class="navegacion">
+            <div class="row">
+                <div class="col-9">
+                    <nav class="navegacion-nav">
+                        <ul>
+                            <li>
+                                <a class="btn btn-outline-light" href="#">Inicio</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-outline-light" href="{% url 'Principal' %}">Incidencias</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-outline-light" href="{% url 'Reporte_I' %}">Reportes</a>
+                            </li>
+                            <li>
+                                <a class="btn btn-outline-light" href="{% url 'AcercaDe' %}">Acerca de</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-1">
+                    <div class ="nombre-user">
+                        <p><strong>{{ request.user.username }} <i class="fa-solid fa-user fa-flip" style="--fa-animation-duration: 3s;" ></i></strong></p>
+                    </div>              
+                </div>
+                <div class="col-1">
+                    <div class="avatar">
+                        {% if request.user.avatar %}
+                            <img src="/media/{{ request.user.avatar }}">
+                            {% else %}
+                                <img src="/media/user-removebg-preview.png">
+                        {% endif %}                                                
+                    </div>                    
+                </div>
+                <div class="col-1">
+                    <div class="sesion">
+                        <a class="btn btn-outline-light" href="{% url 'Logout' %}"><i class="fa-solid fa-close fa-flip" style="--fa-animation-duration: 3s;" ></i> Sesión</a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    {% block content %}{% endblock %}
+    <br>
+    <script src="{% static 'library/cdnjs/jquery.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/mi_estilo1.js' %}"></script>
+    {% block javascript %}{% endblock %}
+</body>
+
+</html>

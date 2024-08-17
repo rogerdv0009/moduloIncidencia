@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Incidencia {{ object.id }} {% endblock %}
+{% block content %}
+
+<div class="vista-completa">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="vista-titulo">
+                    <h4>Sistema</h4>
+                </div>
+                <hr>
+                {% if object.sistema == 1 %}
+                    <div class="vista-contenido">
+                        <p>CIDI</p>
+                    </div>
+                {% else %}
+                    {% if object.sistema == 2 %}
+                            <div class="vista-contenido">
+                                <p>CESOL</p>
+                            </div>
+                        {% else %}
+                            {% if object.sistema == 3 %}
+                                    <div class="vista-contenido">
+                                        <p>VERTEX</p>
+                                    </div>
+                                {% else %}
+                                    {% if object.sistema == 4 %}
+                                            <div class="vista-contenido">
+                                                <p>CESIM</p>
+                                            </div>
+                                        {% else %}
+                                            {% if object.sistema == 5 %}
+                                                    <div class="vista-contenido">
+                                                        <p>XETID</p>
+                                                    </div>
+                                                {% else %}
+                                                        <div class="vista-contenido">
+                                                            <p>Otra</p>
+                                                        </div>
+                                            {% endif %}
+                                    {% endif %}
+                            {% endif %}
+                    {% endif %}
+            {% endif %}
+            </div>
+            <div class="col-3">
+                <div class="vista-titulo">
+                    <h4>Título</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.titulo }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="vista-titulo">
+                    <h4>Estado</h4>
+                </div>
+                <hr>
+                {% if object.estado == 1 %}
+                    <div class="vista-contenido">
+                        <p>En Espera</p>
+                    </div>
+                {% else %}
+                    {% if object.estado == 2 %}
+                            <div class="vista-contenido">
+                                <p>Cerrada</p>
+                            </div>
+                        {% else %}
+                            {% if object.estado == 3 %}
+                                    <div class="vista-contenido">
+                                        <p>Pendiente Recordatorio</p>
+                                    </div>
+                                {% else %}
+                                    <div class="vista-contenido">
+                                        <p>Pendiente Cerrar</p>
+                                    </div>
+                            {% endif %}
+                    {% endif %}
+                {% endif %}   
+            </div>
+            <div class="col-3">
+                <div class="vista-titulo">
+                    <h4>Creado</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.fecha_creado }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container respuesta">
+            <div class="titulo-respuesta">
+                <h4>Descripción</h4>
+            </div>
+            <hr>
+            <p>{{ object.descripcion }}</p>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-1">
+                <div class="vista-titulo">
+                    <h4>Entrada</h4>
+                </div>
+                <hr>
+                {% if object.entrada == 1 %}
+                    <div class="vista-contenido">
+                        <p>Llamada</p>
+                    </div>
+                {% else %}
+                    <div class="vista-contenido">
+                        <p>Correo</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                <div class="vista-titulo">
+                    <h4>Responsable</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.responsable }}</p>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="vista-titulo">
+                    <h4>Nivel</h4>
+                </div>
+                <hr>
+                {% if object.nivel == 3 %}
+                    <div class="vista-contenido">
+                        <p>Proveedor</p>
+                    </div>
+                {% else %}
+                    <div class="vista-contenido">
+                        <p>{{ object.nivel }}</p>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-2">
+                <div class="vista-titulo">
+                    <h4>Organización</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.ObtenerOrganizacion }}</p>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="vista-titulo">
+                    <h4>Prioridad</h4>
+                </div>
+                <hr>
+                {% if object.prioridad == 1 %}
+                    <div class="vista-contenido">
+                        <p>Baja</p>
+                    </div>
+                {% else %}
+                    {% if object.prioridad == 2 %}
+                        <div class="vista-contenido">
+                            <p>Media</p>
+                        </div>
+                    {% else %}
+                    <div class="vista-contenido">
+                        <p>Alta</p>
+                    </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="col-1">
+                <div class="vista-titulo">
+                    <h4>Grupo</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.ObtenerGrupo }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="vista-titulo">
+                    <h4>BDC Anexada</h4>
+                </div>
+                <hr>
+                <div class="vista-contenido">
+                    <p>{{ object.BaseA }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container respuesta">
+            <div class="titulo-respuesta">
+                <h4>Respuestas</h4>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <div class="titulo-respuesta">
+                        <h5>Respuestas definitivas a la Incidencia</h5>
+                    </div>
+                    <hr>
+                    {% if object.respuesta == null %}
+                        <p><strong>Aún no presenta respuesta definitiva</strong></p>
+                    {% else %}
+                        <p>{{ object.respuesta }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-6">
+                    <div class="titulo-respuesta">
+                        <h5>Posibles Respuestas anexadas de la BDC</h5>
+                    </div>
+                    <hr>
+                    {% if object.BaseA.respuestasAnexadas == null %}
+                        <p><strong>Esta Base de Conocimientos no presenta respuestas anexadas aún</strong></p>
+                    {% else %}
+                        <p>{{ object.BaseA.respuestasAnexadas }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="vista-accion">
+            <a href="{% url 'Principal' %}" class="btn btn-outline-dark"><i class="fa-solid fa-arrow-left fa-beat" style="--fa-animation-duration: 2s;"></i> Atrás</a>
+        </div>
+        <br>
+    </div>
+
+</div>
+
+{% endblock %}

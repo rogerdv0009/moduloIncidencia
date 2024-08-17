@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Acerca de{% endblock %}
+{% block content %}
+<div class="contenido-acerca">
+    <div class="anterior">
+        <div class="row">
+            <div class="col-5">
+                <div class="foto-titulo">
+                    <h3>Incidencias</h3>
+                </div>
+                <div class="foto-texto">
+                    <p><strong>Error, evento contradictorio o acontecimiento de desacierto en el código 
+                        o funcionalidad de un servicio que traiga consigo consecuencias graves en la calidad.
+                         En resumen, el término incidencia se utiliza en diferentes contextos para referirse a 
+                         situaciones o eventos que afectan negativamente el funcionamiento normal de una actividad
+                          o sistema, y es importante identificar y gestionar las incidencias de manera efectiva 
+                        para minimizar su impacto y restaurar el servicio lo antes posible.</strong></p>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="foto-principal" style="background-image: url('{% static "img/incidencias_1.png" %}');">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="siguiente">
+        <div class="row">
+            <div class="col-4">
+                <div class="foto-principal" style="background-image: url('{% static "img/mision2-removebg-preview.png" %}');"></div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-7">
+                <div class="siguiente-contenido">
+                    <div class="foto-titulo">
+                        <h3>Misión</h3>
+                    </div>
+                    <div class="foto-texto">
+                        <p><strong>“Brindar el servicio de soporte técnico a las aplicaciones
+                             y servicios informáticos desarrollados por la Universidad de las
+                              Ciencias Informáticas con calidad y eficiencia a partir de una correcta 
+                              gestión de los mismos” </strong></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="anterior">
+        <div class="row">
+            <div class="col-7">
+                <div class="foto-titulo">
+                    <h3>Soporte</h3>
+                </div>
+                <div class="foto-texto">
+                    <p><strong>Error, evento contradictorio o acontecimiento de desacierto en el código 
+                        o funcionalidad de un servicio que traiga consigo consecuencias graves en la calidad.
+                         En resumen, el término incidencia se utiliza en diferentes contextos para referirse a 
+                         situaciones o eventos que afectan negativamente el funcionamiento normal de una actividad
+                          o sistema, y es importante identificar y gestionar las incidencias de manera efectiva 
+                        para minimizar su impacto y restaurar el servicio lo antes posible.</strong></p>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-4">
+                <div class="foto-principal" style="background-image: url('{% static "img/soporte_tecnico-removebg-preview.png" %}');">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

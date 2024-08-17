@@ -1,0 +1,326 @@
+#bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#bga{
+    background-color: #b6bbbf;
+}
+.login{   
+    color: white; 
+    opacity: 0.9;
+    width: 700px;
+    margin:10% auto;
+    background-color: rgba(0, 0, 0, 0.281);
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.315);
+    transition: all .3s;
+}
+.login-contenido{
+    margin: 20px 60px 20px 60px;
+}
+.login-titulo{
+    text-align: center;    
+}
+.login-titulo h3{    
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;    
+}
+.login-submit button{
+    margin: 10px 35%;
+    width: 200px;
+}
+.contenido-principal{
+    margin: 0 10px;
+}
+.contenido-base{
+    margin: 0 10px;
+}
+.contenido-acerca{
+    margin: 0 10px;
+}
+.completo-listar{
+    transition: opacity .7s ease;
+    opacity: 0;    
+    background-color: #f5f2f4fb;    
+}
+.completo-listar2{
+    opacity: 1;    
+        
+}
+.borde{    
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+} 
+.form-group{
+    margin: 10px;
+}
+.login-formulario{
+    margin-left: 35%;
+}
+body:hover .login{
+    width: 600px;
+    opacity: 1;
+    box-shadow: 20px 20px 30px rgba(255, 255, 255, 0.63);
+    border-radius: 20px;
+}
+body:hover .login .login-contenido{
+    margin: 10px;
+}
+.insertar{
+    height: 300px;
+}
+.insertarb{
+    border: 2px solid rgba(255, 255, 255, 0.315);
+}
+.titulo-insertarb{
+    text-align: center;
+}
+.info-insertarb{
+    text-align: center;
+}
+.carousel-item img{
+    height: 300px;
+}
+.carousel-item{
+    position: relative;
+}
+.pintado{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.603);
+    color: white;
+    height: 400px; 
+    width: 100%; 
+    transition: opacity .7s ease;  
+}
+.pintado-visto{    
+    opacity: 1;
+}
+.titulop{
+    text-align: center; 
+    transition: all .7s ease;
+    font-size: 35px;
+}
+.acomodar{     
+    font-size: 45px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;         
+    margin: 0 10px;
+    height: 80px;    
+    border: 2px solid rgba(255, 255, 255, 0.315);    
+}
+.antesl{
+    transition: all .7s ease;    
+}
+.antesl p{
+    font-size: 35px;    
+    font-weight: 700;   
+}
+.antesl2{      
+    margin: 10px 20px 0 10px;
+    font-family: 'Times New Roman', Times, serif; 
+}
+.navegacion{
+    background-color: rgba(212, 9, 9, 0.829);
+    height: 70px;
+    margin: 0 10px;
+    border: 2px solid black;
+}
+.navegacion ul{
+    margin: 0;
+    padding: 0;
+}
+.navegacion-nav ul li{
+    list-style: none;
+    display: inline;
+    margin: 20px 20px;
+}
+.navegacion-nav ul li a{
+    margin: 15px 0;
+}
+.sesion a{
+    width: 85px;
+    margin: 2px 0;
+    border-radius: 35px;
+}
+.nombre-user{
+    margin: 15px 0;
+}
+.avatar img{
+    width: 108px;
+    height: 62;
+    border-radius: 100%;
+    margin: 2px 0;
+}
+.titulo-insertar{
+    text-align: center;
+    margin-top: 50px;
+}
+.info-insertar{
+    margin-top: 50px;
+    text-align: center;
+}
+.link_insertar{
+    margin-left: 42%;
+}
+.link_insertar a{
+    width: 200px;
+    height: 40px;
+}
+.listar{
+    height: 50px;
+    background-color: rgba(7, 7, 7, 0.911);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.listar a{
+    margin: 5px 0;
+}
+.vol{
+    background-color: #f5f2f4d2;    
+}
+.vol2{
+    background-color: rgba(109, 16, 16, 0.801);        
+    color: white;
+}
+.subir{
+    transition: all .3s;
+}
+.subir2{
+    transition: all .3s;
+}
+.subir:hover{    
+    transform: scale(1.15);
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+}
+.subir2:hover{
+    transform: scale(1.15);
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+}
+.contenido-footer{
+    background-color: rgba(0, 0, 0, 0.61);
+    color: white;
+}
+.formulario{
+    transition: all 1s ease;
+    opacity: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.753);    
+    width: 95%;  
+    margin: 15px auto;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px black ;
+}
+.formulario2{
+    opacity: 1;
+}
+.formulario-dentro{
+    background-color: rgba(0, 0, 0, 0.466);
+    border-radius: 10px;
+}
+.titulo-form{
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif; 
+}
+.titulo-form p{
+    font-size: 30px;
+    font-weight: 700;    
+    text-decoration: underline;
+}
+.contenido-form{    
+    margin: 10px 20px;
+}
+
+.enviar-form{
+    margin: 10px 35%;
+}
+.foto-principal{
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px black;
+    transition: all .5s ease;
+}
+.foto-principal2{
+    opacity: 1;
+    height: 400px;
+}
+.foto-titulo{
+    margin: 20px;
+}
+.foto-texto{
+    margin: 10px;
+    text-align: justify;
+}
+.siguiente{
+    margin: 20px 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.siguiente-contenido{
+    height: 400px;    
+}
+.mensaje{
+    margin: 20px 10%;
+}
+.eliminar-incidencia{
+    margin: 20px auto;
+    border-radius: 20px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 10px 10px 10px black;
+    transition: all .5s ease;
+}
+.eliminar-titulo{
+    margin: 20px 10px;
+}
+.eliminar-contenido{
+    margin: 10px;
+    text-align: center;
+}
+.eliminar-accion{
+    margin: 10px 10%;
+}
+.container.respuesta{
+    transition: all 0.5s;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    margin: 20px;
+    border: 3px solid white;
+    border-radius: 10px;
+
+}
+.vista-completa{
+    background-color: #b6bbbf;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px black;
+}
+.container.respuesta:hover{
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 10px white;
+}
+.foto-principal:hover{
+    transform: translateY(10px);
+    box-shadow: 20px 20px 20px white;
+    border: 1px solid black;
+}
+.siguiente .row .col-7 .foto-principal:hover{
+    box-shadow: 20px 20px 20px rgba(245, 6, 6, 0.664);
+}
+.eliminar-incidencia:hover{
+    transform: translateY(10px);
+    box-shadow: 20px 20px 20px white;
+    border: 1px solid black;
+}

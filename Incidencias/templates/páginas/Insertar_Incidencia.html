@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Insertar Incidencia{% endblock %}
+{% block content %}
+<form action="." method="post">
+    <div class="formulario">
+        <div class="formulario-dentro">
+            <div class="titulo-form">
+                <p>Nueva Incidencia</p>
+            </div>
+            {% csrf_token %}
+    
+            {% if form.errors %}
+            <div class="errores-alert">
+                <p><strong>El formulario contiene los siguientes errores</strong></p>
+                <ul>
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+    
+            {% endif %}
+    
+            <!-- Esto lo hago para poder personalizar el formulario clases de bootstrap -->
+            <div class="contenido-form">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.titulo.label }}</label>
+                                    {{ form.titulo }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.cliente.label }}</label>
+                                    {{ form.cliente }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.entrada.label }}</label>
+                                    {{ form.entrada }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.sistema.label }}</label>
+                                    {{ form.sistema }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">{{ form.descripcion.label }}</label>
+                            {{ form.descripcion }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="">{{ form.estado.label }}</label>
+                            {{ form.estado }}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="">{{ form.grupo.label }}</label>
+                            {{ form.grupo }}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="">{{ form.organizacion.label }}</label>
+                            {{ form.organizacion }}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="">{{ form.responsable.label }}</label>
+                            {{ form.responsable }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- <button id="otro" type="button">tocar</button> -->
+    
+    
+            <div class="enviar-form">
+                <button class="btn btn-primary btn-lg" type="submit"><i class="fa-solid fa-save fa-beat" style="--fa-animation-duration: 2s;"></i> Guardar Incidencia</button>
+                <a href="{% url 'Principal' %}" class="btn btn-danger btn-lg"><i class="fa-solid fa-cancel fa-beat" style="--fa-animation-duration: 2s;"></i> Cancelar</a>
+            </div>
+            <br>
+        </div>
+        
+    </div>
+
+</form>
+<script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+    <script>
+        {% if form.errors %}
+            Swal.fire({
+                title: 'Errores!',
+                text: 'Se han encontrado errores en el formulario de autenticación',
+                icon: 'error',
+            });
+        {% endif %}        
+    </script> 
+{% endblock %}

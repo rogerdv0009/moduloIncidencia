@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Incidencias</title>
+    <link rel="stylesheet" href="{% static 'library/font-awesome-5.11.1/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mi_estilo8.css' %}">
+</head>
+
+<body id="bg" style="background-image: url('{% static "img/loin.jpg" %}');">
+    <div class="login">
+        <form action="." method="post">
+            <div class="login-contenido">
+                <div class="login-titulo">
+                    <h3>Acceso a Incidencias</h3>
+                </div>
+                <hr>
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+                
+                {% if form.errors %}
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+                        {{ form.errors }}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="login-formulario">
+                    <div class="form-group">
+                        <label for="username">Usuario</label><br>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label><br>
+                        {{ form.password }}
+                    </div>
+                </div>
+
+
+                <div class="login-submit">
+                    <button type="submit" class="btn btn-secondary "><i class="fas fa-error"></i>Acceder</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+    <script>
+        let error =''
+        {% if form.errors %}
+            {% comment %} {% for field in form %}
+                {% for error in field.errors %}
+                    error = 
+                {% endfor %}
+            {% endfor %}             {% endcomment %}
+            Swal.fire({
+                title: 'Errores!',
+                text: 'Se han encontrado errores en el formulario de autenticación',
+                icon: 'error',
+            });
+        {% endif %}
+    </script> 
+</body>
+   
+</html>

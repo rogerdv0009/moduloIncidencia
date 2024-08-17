@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Reporte de Incidencias{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'library/datatable/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+<style>
+    .text-center{
+        text-align: center;
+        width: 20%;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="contenido-principal">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="antesl lan">
+                    <p>Reportes de las Incidencias <i class="fa-solid fa-pie-chart fa-flip" style="--fa-animation-duration: 5s;" ></i></i></p>
+                </div>
+            </div>
+            <div class="col-lg-4 text_center">
+                <p>Exportar: </p>
+                <a class="btn btn-outline-danger" href="{% url 'ReporteI' 'fecha_i' 'fecha_f' %}">
+                    <i class="fa-solid fa-file-pdf fa-flip" style="--fa-animation-duration: 5s;"></i>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label><i class="fa-solid fa-calendar fa-beat"></i> Rango de Fechas:</label>
+                    {{ formulario.date_range }}
+                </div>
+            </div>
+        </div>
+        <div class="completo-listar borde">
+            <div class="margen">
+                <div class="container">
+                    <table class="tabla-reporte" style="width: 100%" id="tabla">
+                        <thead>
+                            {% block columns %}
+                                <tr>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">ID</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Cliente</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Estado</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Creado</th>
+                                    <th style="width: 20%; padding: 3px; text-align: center; border-bottom: 1px solid black;">Nivel</th>
+                                </tr>
+                            {% endblock %}
+                        </thead>
+                        <tbody>
+                            {% block rows %}
+                                
+                            {% endblock %}
+                        </tbody>
+                    </table> 
+                </div>
+            </div>   
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'library/daterangepicker-master/moment.min.js' %}"></script>
+<script src="{% static 'library/daterangepicker-master/daterangepicker.js' %}"></script>
+<script src="{% static 'js/reporteDateRange.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'library/datatable/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+{% endblock %}

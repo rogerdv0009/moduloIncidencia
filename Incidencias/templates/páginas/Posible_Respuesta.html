@@ -1,0 +1,100 @@
+{% load static %}
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Filtrado de Respuestas Procesadas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="contenido-respuesta">
+            <div class="respuesta-titulo">
+                <h2><i class="fa-solid fa-exclamation fa-beat"></i> Principales respuestas según el filtrado</h2>
+            </div>
+            {% if incidencias_filtradas %}
+                {% for i in incidencias_filtradas %}
+                    <div class="card">
+                        <div class="respuesta_titulo">
+                            <h4>Título:</h4>
+                            <p>{{ i.titulo }}</p>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="respuesta-nivel">
+                                    <h4>Nivel:</h4>
+                                    <p>{{ i.ObtenerNivel }}</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="respuesta-prioridad">
+                                    <h4>Prioridad:</h4>
+                                    <p>{{ i.ObtenerPrioridad }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="respuesta_descripcion">
+                                    <h4>Descripción</h4>
+                                    <p><i class="fa-solid fa-list-alt fa-beat"></i> {{ i.descripcion }} <i class="fa-solid fa-list-alt fa-beat"></i></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="respuesta_respuesta">
+                                    <h4>Respuesta</h4>
+                                    <p><strong><i class="fa-solid fa-comment fa-beat"></i> {{ i.respuesta }} <i class="fa-solid fa-comment fa-beat"></i></strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <br>
+            {% endif %}
+            <div class="respuesta-titulo">
+                <h2><i class="fa-solid fa-exclamation fa-beat"></i> Respuestas secundarias según el filtrado</h2>
+            </div>
+            <hr>
+            {% if mismo_titulo %}
+                {% for m in mismo_titulo %}
+                    <div class="card">
+                        <div class="respuesta_titulo">
+                            <h4>Título:</h4>
+                            <p>{{ m.titulo }}</p>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="respuesta-nivel">
+                                    <h4>Nivel:</h4>
+                                    <p>{{ m.nivel }}</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="respuesta-prioridad">
+                                    <h4>Prioridad:</h4>
+                                    <p>{{ m.prioridad }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="respuesta_descripcion">
+                                    <h4>Descripción:</h4>
+                                    <p><i class="fa-solid fa-list-alt fa-beat"></i> {{ m.descripcion }} <i class="fa-solid fa-list-alt fa-beat"></i></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="respuesta_respuesta">
+                                    <h4>Respuesta:</h4>
+                                    <p><strong><i class="fa-solid fa-comment fa-beat"></i> {{ m.respuesta }} <i class="fa-solid fa-comment fa-beat"></i></strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Procesar Incidencia{% endblock %}
+{% block content %}
+<form action="." method="post">
+    <div class="formulario">
+        <div class="formulario-dentro">
+            <div class="titulo-form">
+                <p>Procesar Incidencia con id: {{ primaryKey }}</p>
+            </div>
+            {% csrf_token %}
+    
+            {% if form.errors %}
+            <div class="errores-alert">
+                <p><strong>El formulario contiene los siguientes errores</strong></p>
+                <ul>
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+    
+            {% endif %}
+    
+            <!-- Esto lo hago para poder personalizar el formulario clases de bootstrap -->
+            <div class="contenido-form">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.nivel.label }}</label>
+                                    {{ form.nivel }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">{{ form.prioridad.label }}</label>
+                                    {{ form.prioridad }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">{{ form.respuesta.label }}</label>
+                            {{ form.respuesta }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- <button id="otro" type="button">tocar</button> -->
+            {% include "Posible_Respuesta.html" %}
+    
+            <div class="enviar-form">
+                <button class="btn btn-success btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa-solid fa-filter fa-beat" style="--fa-animation-duration: 2s;"></i> Posibles resultados</button>
+                <button class="btn btn-primary btn-lg" type="submit"><i class="fa-solid fa-save fa-beat" style="--fa-animation-duration: 2s;"></i> Procesar Incidencia</button>
+                <a href="{% url 'Principal' %}" class="btn btn-danger btn-lg"><i class="fa-solid fa-cancel fa-beat" style="--fa-animation-duration: 2s;"></i> Cancelar</a>
+            </div>
+            <br>
+        </div>
+        
+    </div>
+
+</form>
+<script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+    <script>
+        {% if form.errors %}
+            Swal.fire({
+                title: 'Errores!',
+                text: 'Se han encontrado errores en el formulario de autenticación',
+                icon: 'error',
+            });
+        {% endif %}        
+    </script> 
+{% endblock %}
